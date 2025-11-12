@@ -1,0 +1,22 @@
+\section{Literature}
+
+ML as a concept is the basis of the field of artificial intelligence (AI), the primary purpose of ML is the generation of algorithms that are able to learn. In this regard, research has focused on the optimisation of these systems by generation of new techniques and identifying the most optimal combinations of pre-existing software/hardware \cite{optimsinNN}.
+
+The MRI image set relies on the classification ML technique, the specifics of this are introduced here.
+
+\subsection{Image Classifiers}
+
+This selection was reinforced by past research on brain cancer MRI's \cite{classMRI}. In particular, a convolutional neural network (CNN) was deployed. This ML technique has been shown to highly effective in image classification \cite{WANG202161}. A  review into CNNs describes the typical architecture and construction techniques \cite{zhao_wang_zhang_han_deveci_parmar_2024}. As the task differs the design of the CNN can change, although the general format remains essentially the same. This typical structure, shown in fig. \ref{fig:CNN}, is comprised of ordered convolutional and pooling layers that come together to make a feature extractor. The inputted data is converted into a feature representation. In combination with this, fully-connected neural layers are integrated with activation functions to perform the desired ML operation.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{CNNdiagram.png}
+    \caption{Convolutional Neural Network Architecture \cite{zhao_wang_zhang_han_deveci_parmar_2024}}
+    \label{fig:CNN}
+\end{figure}
+
+Prior to data being used in ML, in order to increase suitability and feasability of the model training, it should receive some sort of pre-processing. In order to effectively train a model the data should be effected in a way that benefits the robustness and accuracy of the training process \cite{processing}.
+
+\subsubsection{Pre-Processing}
+
+In image classification, effective pre-processing has been shown to increase the rate of identification \cite{okraprocessing}. For very large datasets, where manual review is not possible, automatic pre-processing is a must. Studies show that image, cropping and reshaping, image resizing, and background noise removal are beneficial to the training process.

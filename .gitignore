@@ -1,0 +1,42 @@
+# LaTeX build files (but keep main.pdf in root)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+
+# Build directory (contains auxiliary files)
+build/
+
+# Exclude PDFs except main.pdf
+*.pdf
+!main.pdf
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+*.sublime-*
+
+# Temporary files
+*.tmp
+*.temp
