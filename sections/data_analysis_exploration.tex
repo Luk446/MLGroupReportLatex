@@ -2,7 +2,11 @@
 
 Based on the literature discussed previously, the data used in the following scenarios has undergone careful analysis in order to understand and prepare for upcoming ML.
 
-The MRI classifying dataset was sourced from a comprehensive collection of MRI images collected from a series of hospitals in Bangladesh \cite{rahman_2024}. The data holds great value and significant effort was made to collect and label high quality images. A sample of the three classes of data present is shown in fig.~\ref{fig:three_side_by_side}, pictures (a to b).  The proprietor has already uniformly resized the images to an equal length and height. Some further ML specific pre-processing steps are executed:
+The MRI classifying dataset was sourced from a comprehensive collection of MRI images collected from a series of hospitals in Bangladesh \cite{rahman_2024}. The data holds great value and significant effort was made to collect and label high quality images.
+
+\subsection{Brain Cancer MRI's}
+
+A sample of the three classes of data present is shown in fig.~\ref{fig:three_side_by_side}, pictures (a to b).  The proprietor has already uniformly resized the images to an equal length and height. The ML for this set uses the hold-out method, 70\% of the data is used for training, with the remaining 30\% used equally between validaiton and training. To avoid bias or overfitting the data is shuffled using an scikit-learn cross-validation function that returns stratified randomised folds \cite{scikit-learn_SS}. For the three sets some further ML specific pre-processing steps are executed, with training having more:
 
 \begin{figure}[h]
     \centering
@@ -58,3 +62,22 @@ The MRI classifying dataset was sourced from a comprehensive collection of MRI i
     \item Normalisation to floating-point values in range [0,1]
     \item Standardisation using ImageNet mean and standard deviation
 \end{itemize}
+
+
+Additionally, the stroke dataset presented some inherent issues.
+
+\subsection{Stroke patient data}
+
+The stroke dataset used contains 5,110 patient records with demographic and clinical attributes such as age, heart disease, BMI, hypertension and average blood sugar level. The main variable (stroke) is binary. A small amount of missing BMI data was filled in by using the mean value.
+
+A major challenge with this dataset is how unbalanced it is, with only about 3.4\% of the cases actually having a stroke. The data exploration carried out indicated a higher chance of stroke among individuals within the age range of 50-80 years as shown in Fig.~\ref{fig:ADSO} and those with elevated glucose levels. When correlation analysis was carried out, it showed that age, hypertension and heart disease had subtle but meaningful relationship with stroke occurrences.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{chin_agedistgraph.png}
+    \caption{Age Distribution by Stroke Outcome}\label{fig:ADSO}
+\end{figure}
+
+To get the data ready for training, word-based features were converted to 0/1 columns so the models could process them. All numerical values were also rescaled to a similar range to ensure no feature dominated the other while the model was trained. To deal with the class imbalance problem, SMOTE was used to generate synthetic stroke cases, which helped in detecting rare instances of stroke. The preprocessing and exploration guided the modelling choices in later stages.
+
+After the initial data-processing step has been completed for all the datasets, the ML algorithms can now be established.

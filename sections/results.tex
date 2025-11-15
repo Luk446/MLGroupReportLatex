@@ -1,1 +1,27 @@
 \section{Results}
+
+Concerning the stroke prediction set. When the models were applied to the unbalanced data, the results showed high accuracy, but barely predicted any actual strokes (low recall).Which means they usually just guessed “no stroke” every time. Logistic Regression performed best overall as shown in Fig.~\ref{fig:BCM} and table~\ref{tab:stroke_classification_report}, it has a strong recall score of 0.79 for the stroke cases while maintaining a good accuracy. This improvement shows how important it is to deal with unbalanced data when making predictions. The neural network achieved a high accuracy of 92\% but struggled to identify actual stroke cases (low recall), which suggests it had difficulty in learning the patterns of the minority class.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{chin_balancedCM.png}
+    \caption{Confusion matrix for logistic regression (SMOTE-balanced dataset)}\label{fig:BCM}
+\end{figure}
+
+\begin{table}[h]
+	\centering
+	\caption{Classification report for stroke prediction}
+	\label{tab:stroke_classification_report}
+	\begin{tabular}{lcccc}
+			\toprule
+			\textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\
+		\midrule
+		No Stroke & 0.99 & 0.73 & 0.84 & 1458 \\
+		Stroke    & 0.13 & 0.79 & 0.22 & 75 \\
+		\midrule
+		Accuracy  & 0.73 & --   & --   & 1533 \\
+		Macro Avg & 0.56 & 0.76 & 0.53 & 1533 \\
+		Weighted Avg & 0.94 & 0.73 & 0.81 & 1533 \\
+		\bottomrule
+	\end{tabular}
+\end{table}

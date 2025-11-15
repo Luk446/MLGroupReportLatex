@@ -1,5 +1,22 @@
 \section{Experimental setup}
 
+As the content of the datasets varies in format and shape, the experimental setup for each varies too.
+
 \subsection{Baseline Training and Evaluation Experiments}
 
+For the stroke dataset, after the data was cleaned, three primary machine learning models were used.
+
+\subsection{Stroke analysis}
+
+The selected models were:
+\begin{itemize}
+    \item K-Nearest Neighbours (KNN)
+    \item Logistic Regression
+    \item Random Forest Classifier
+\end{itemize}
+
+The data was split into two parts for training and testing, 70\% was used for training the models and the remaining 30\% was set aside to test how well they performed. The performance of the models were evaluated using four main measurements; accuracy, precision, recall, and F1-score. After applying SMOTE, the models were retrained.
+
 \subsection{Neural Networks}
+
+To ensure a balanced evaluation of the stroke data and to compare with the classical models, a multi-layer perceptron (MLP) was used to train the balanced data.
