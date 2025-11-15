@@ -53,7 +53,7 @@ The MRI dataset was trained using a convolutional neural network (CNN) implement
 
 This architecture progressively increases feature depth (3$\rightarrow$32$\rightarrow$64$\rightarrow$128$\rightarrow$256 channels) while reducing spatial dimensions through max pooling, allowing the network to learn hierarchical representations from low-level edges to high-level semantic features for MRI classification. 
 
-The design of the training loop is configured to utilise the defined model. The path of the data is visualised and displayed in simple flow charts for training and testing, shown in Appendix Fig.~\ref{fig:TLMRI} and Fig.~\ref{fig:TELMRI}.
+The design of the training loop is configured to utilise the defined model. The path of the data is visualised and displayed in simple flow charts for training and testing, shown in Appendix Fig.~\ref{fig:TLMRI} and Fig.~\ref{fig:TELMRI}. Additionally, during training the performance of the model over each epoch was recorded. To provide extra insight into the training and broaden the scope, the model was run with varying hidden layer activation functions.
 
 % ------------ chin -------------------------- %
 For the stroke dataset, after the data was cleaned, three primary machine learning models were used.
