@@ -6,7 +6,7 @@ For the MRI set, the final results of the performance of the model over the test
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{luke_confusion_matrix.png}
-    \caption{Confusion matrix for logistic regression (SMOTE-balanced dataset)}\label{fig:MRICM}
+    \caption{Confusion matrix for brain cancer set}\label{fig:MRICM}
 \end{figure}
 
 \begin{table}[h]
@@ -28,13 +28,28 @@ For the MRI set, the final results of the performance of the model over the test
     \end{tabular}
 \end{table}
 
+The result of the differing acitvation function performances are displayed combined in a line chart displaying the running accuracy and loss of the training set, shown in Fig.~\ref{fig:MRITP} (a) and (b).
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{activation_train_accuracy_comparison.png}
+		\caption{Combined training accuracies for MRI set}\label{fig:CTAMS}
+	\end{subfigure}
+	\hfil
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{activation_train_loss_comparison.png}
+		\caption{Combined training losses for MRI set}\label{fig:CTAMSL}
+	\end{subfigure}
+	\caption{MRI set training performance}\label{fig:MRITP}
+\end{figure}
+
 % ------------ chin -------------------------- %
 For the stroke prediction set, the following confusion matrix and classification report summarise the model performance on the test data.
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{chin_balancedCM.png}
-    \caption{Confusion matrix for brain cancer set}\label{fig:BCM}
+    \caption{Confusion matrix for logistic regression (SMOTE-balanced dataset)}\label{fig:BCM}
 \end{figure}
 
 \begin{table}[h]
