@@ -1,15 +1,19 @@
 \section{Literature}
 
+% ------------ luke -------------------------- %
 ML as a concept is the basis of the field of artificial intelligence (AI); the primary purpose of ML is the generation of algorithms that are able to learn. In this regard, research has focused on the optimisation of these systems by generation of new techniques and identifying the most optimal combinations of pre-existing software/hardware \cite{optimsinNN}.
 
+% ------------ chin -------------------------- %
 ML is a popular tool in stroke research and its used to help spot problems earlier and assess patients more accurately. Large-scale research clearly shows that age, blood pressure, heart conditions, and blood pressure all play a role in how stroke affects a patient, hence the use of predictive modelling is needed to identify issues and intervene as early as possible \cite{strokestudy}. Traditional statistics methods, like logistic regression are popular in healthcare because they’re easy to interpret and identify factors that contribute to a patient’s risk.
 
 \subsection{Logistic Regression}
 
+% ------------ chin -------------------------- %
 According to Aboong \cite{aboonq_2024}, logistic regression effectively points out the main stroke risk factors, proving it’s a great tool for analysing organised medical datasets. Heo et.al \cite{heo_yoon_park_kim_nam_heo_2019} developed a machine learning model for predicting stroke outcomes, and their work showed how effective machine learning methods work better than the usual scoring tools. A big challenge, though is that stroke datasets usually suffer from a severe class imbalance and this can negatively affect a model’s performance. Using techniques such as Synthetic Minority Over-sampling Technique (SMOTE) to balance the data has proven to improve the model’s ability to find rare conditions in medical datasets \cite{chawla_bowyer_hall_kegelmeyer_2002}x.
 
 The MRI image set relies on the classification ML technique; the specifics of this are introduced here.
 
+% ------------ luke -------------------------- %
 \subsection{Image Classifiers}
 
 This selection was reinforced by past research on brain cancer MRIs \cite{classMRI}. In particular, a convolutional neural network (CNN) was deployed. This ML technique has been shown to be highly effective in image classification \cite{WANG202161}. A review into CNNs describes the typical architecture and construction techniques \cite{zhao_wang_zhang_han_deveci_parmar_2024}. As the task differs, the design of the CNN can change, although the general format remains essentially the same. This typical structure, shown in Fig.~\ref{fig:CNN}, is comprised of ordered convolutional and pooling layers that come together to make a feature extractor. The inputted data is converted into a feature representation. In combination with this, fully-connected neural layers are integrated with activation functions to perform the desired ML operation.

@@ -2,11 +2,63 @@
 
 As the content of the datasets varies in format and shape, the experimental setup for each varies too.
 
-\subsection{Baseline Training and Evaluation Experiments}
+\subsection{Image classification training and evaluation}
 
+% ------------ luke -------------------------- %
+The MRI dataset was trained using a convolutional neural network (CNN) implemented as a customisable PyTorch model called \texttt{MRIClassifier}, based on the architecture shown in Fig.\ref{fig:CNN}. The architecture consists of the following components:
+
+\begin{enumerate}
+    \item \textbf{Initialisation and Configuration:}
+    \begin{itemize}
+        \item The model accepts two configurable parameters: \texttt{num\_classes} (default 3) to specify the number of output classes, and \texttt{act\_func} (default \texttt{nn.ReLU}) to define the activation function used throughout the network.
+        \item An internal activation factory function is implemented to instantiate the specified activation function, automatically handling the \texttt{inplace} parameter when supported by the activation function.
+    \end{itemize}
+    
+    \item \textbf{Feature Extraction Blocks:}
+    
+    The feature extraction component comprises four convolutional blocks arranged sequentially, each following the pattern: convolution $\rightarrow$ batch normalisation $\rightarrow$ activation $\rightarrow$ max pooling.
+    
+    \begin{itemize}
+        \item \textit{Block 1:} Processes the input 3-channel image (RGB or similar) using a \texttt{Conv2d} layer with 32 output channels, $3\times3$ kernel size, and padding of 1 to preserve spatial dimensions. This is followed by \texttt{BatchNorm2d} for normalisation, the configured activation function, and \texttt{MaxPool2d} with stride 2 to downsample by half.
+        
+        \item \textit{Block 2:} Increases feature depth from 32 to 64 channels using a \texttt{Conv2d} layer with $3\times3$ kernel and padding 1, followed by batch normalisation, activation, and max pooling to further reduce spatial dimensions.
+        
+        \item \textit{Block 3:} Expands feature maps from 64 to 128 channels through convolution with $3\times3$ kernel and padding 1, applying batch normalisation, activation, and max pooling.
+        
+        \item \textit{Block 4:} The final convolutional block increases depth from 128 to 256 channels using a \texttt{Conv2d} layer with $3\times3$ kernel and padding 1, followed by batch normalisation, activation, and max pooling.
+    \end{itemize}
+    
+    \item \textbf{Adaptive Global Pooling:}
+    \begin{itemize}
+        \item An \texttt{AdaptiveAvgPool2d} layer reduces the spatial dimensions of the feature maps to $1\times1$, regardless of input size. This ensures a fixed-size feature vector of 256 elements enters the classifier, making the network adaptable to varying input dimensions.
+    \end{itemize}
+    
+    \item \textbf{Classification Head:}
+    \begin{itemize}
+        \item A dropout layer with probability 0.5 is applied for regularisation to prevent overfitting during training.
+        \item A fully connected linear layer (\texttt{nn.Linear}) maps the 256-dimensional feature vector to \texttt{num\_classes} output logits (3 by default), producing raw class scores.
+    \end{itemize}
+    
+    \item \textbf{Forward Pass Pipeline:}
+    
+    The forward propagation through the network follows this sequence:
+    \begin{enumerate}
+        \item Input images pass through the four convolutional feature extraction blocks.
+        \item The resulting feature maps are globally pooled using adaptive average pooling to $1\times1$ spatial dimensions.
+        \item The pooled features are flattened into a 1D vector of 256 elements.
+        \item The flattened vector passes through the classifier (dropout followed by linear layer) to produce class logits.
+        \item The output logits are returned for subsequent loss calculation or prediction.
+    \end{enumerate}
+\end{enumerate}
+
+This architecture progressively increases feature depth (3$\rightarrow$32$\rightarrow$64$\rightarrow$128$\rightarrow$256 channels) while reducing spatial dimensions through max pooling, allowing the network to learn hierarchical representations from low-level edges to high-level semantic features for MRI classification. 
+
+The design of the training loop is configured to utilise the defined model. The path of the data is visualised and displayed in simple flow charts for training and testing, shown in Appendix Fig.~\ref{fig:TLMRI} and Fig.~\ref{fig:TELMRI}.
+
+% ------------ chin -------------------------- %
 For the stroke dataset, after the data was cleaned, three primary machine learning models were used.
 
-\subsection{Stroke analysis}
+\subsection{Stroke analysis training and evaluation}
 
 The selected models were:
 \begin{itemize}
@@ -15,8 +67,4 @@ The selected models were:
     \item Random Forest Classifier
 \end{itemize}
 
-The data was split into two parts for training and testing, 70\% was used for training the models and the remaining 30\% was set aside to test how well they performed. The performance of the models were evaluated using four main measurements; accuracy, precision, recall, and F1-score. After applying SMOTE, the models were retrained.
-
-\subsection{Neural Networks}
-
-To ensure a balanced evaluation of the stroke data and to compare with the classical models, a multi-layer perceptron (MLP) was used to train the balanced data.
+The data was split into two parts for training and testing, 70\% was used for training the models and the remaining 30\% was set aside to test how well they performed. The performance of the models were evaluated using four main measurements; accuracy, precision, recall, and F1-score. After applying SMOTE, the models were retrained. To ensure a balanced evaluation of the stroke data and to compare with the classical models, a multi-layer perceptron (MLP) was used to train the balanced data.
