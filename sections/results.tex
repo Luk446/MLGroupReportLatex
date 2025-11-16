@@ -6,12 +6,12 @@ For the MRI set, the final results of the performance of the model over the test
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{luke_confusion_matrix.png}
-    \caption{Confusion matrix for brain cancer set}\label{fig:MRICM}
+    \caption{Confusion matrix for brain cancer set (ReLU)}\label{fig:MRICM}
 \end{figure}
 
 \begin{table}[h]
     \centering
-    \caption{Classification report for CNN brain tumor prediction}
+    \caption{Classification report for CNN brain tumor prediction (ReLU)}
     \label{tab:cnn_classification_report}
     \begin{tabular}{lcccc}
         \toprule
@@ -28,16 +28,31 @@ For the MRI set, the final results of the performance of the model over the test
     \end{tabular}
 \end{table}
 
-The result of the differing acitvation function performances are displayed combined in a line chart displaying the running accuracy and loss of the training set, shown in Fig.~\ref{fig:MRITP} (a) and (b).
+The result of the differing acitvation function performances are displayed in a line chart showing the running accuracy and loss of the training set and a table of final epoch performance. Shown in, Fig.~\ref{fig:MRITP} (a) and (b), and table \ref{tab:activation_performance}.
+
+\begin{table}[h]
+    \centering
+    \caption{Final epoch comparison of activation functions for CNN MRI model}\label{tab:activation_performance}
+    \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Activation} & \textbf{Train Loss} & \textbf{Val Loss} & \textbf{Train Acc\%} & \textbf{Val Acc\%} \\
+        \midrule
+        LReLU & 0.4499 & 0.3561 & 81.67 & 86.47 \\
+        SiLU      & 0.4770 & 0.3747 & 80.37 & 85.48 \\
+        ReLU      & 0.4588 & 0.4156 & 81.48 & 84.71 \\
+        ELU       & 0.5023 & 0.7485 & 79.38 & 63.70 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}[b]{0.45\linewidth}
+	\begin{subfigure}[b]{0.48\linewidth}
 		\includegraphics[width=\linewidth]{activation_train_accuracy_comparison.png}
 		\caption{Combined training accuracies for MRI set}\label{fig:CTAMS}
 	\end{subfigure}
 	\hfil
-	\begin{subfigure}[b]{0.45\linewidth}
+	\begin{subfigure}[b]{0.48\linewidth}
 		\includegraphics[width=\linewidth]{activation_train_loss_comparison.png}
 		\caption{Combined training losses for MRI set}\label{fig:CTAMSL}
 	\end{subfigure}
