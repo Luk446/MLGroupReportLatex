@@ -84,3 +84,22 @@ For the stroke prediction set, the following confusion matrix and classification
 		\bottomrule
 	\end{tabular}
 \end{table}
+
+% --------- sar jah ------------------ %
+\subsection{Combined dataset results}
+
+The Random Forest classifier with only demographic and administrative features in the first model performed the worst. The accuracy was 0.16, and the precision, recall, and F1-scores were similar to 0.16--0.17. The output (i.e., predicting Obesity with probability 0.3835) shows that these non-clinical features provide little partition between categories. By contrast, the symptom-based model did a very good job. The accuracy with precision, recall, and F1-score within all diseases (around 97\%) is demonstrated below.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{systembaseddaata.png}
+    \caption{Disease prediction}
+    \label{fig:DPO}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{valrsps.jpg}
+    \caption{Validation report print-out}
+    \label{fig:VALRS}
+\end{figure}

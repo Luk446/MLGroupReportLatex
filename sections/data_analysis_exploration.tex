@@ -81,3 +81,24 @@ A major challenge with this dataset is how unbalanced it is, with only about 3.4
 To get the data ready for training, word-based features were converted to 0/1 columns so the models could process them. All numerical values were also rescaled to a similar range to ensure no feature dominated the other while the model was trained. To deal with the class imbalance problem, SMOTE was used to generate synthetic stroke cases, which helped in detecting rare instances of stroke. The preprocessing and exploration guided the modelling choices in later stages.
 
 After the initial data-processing step has been completed for all the datasets, the ML algorithms can now be established.
+
+% ---------------- sar+jah ------------- %
+\subsection{Combined Healthcare Dataset}
+
+This study also considers a combined healthcare dataset assembled for multiclass disease prediction using non-clinical attributes and symptom indicators. We treat the administrative/demographic records and symptom-based records jointly as a single, combined dataset for analysis and modelling.
+
+Within the combined dataset, the symptom-based component is concerned with general disease prediction using data on symptoms. It is a large array of symptom features, whereas the last column is the diagnosed disease. The problem is represented as a multiclass classification task in which the model will be required to estimate one category of disease through a combination of symptoms. The dataset is used to train machine-learning algorithms like the Random Forest classifier to learn the relationship between patterns of symptoms and the occurrence of certain diseases and to assess the ability of symptoms alone to aid in the accurate prediction of a disease \cite{MLS3,MLS4}.
+
+\subsubsection{Healthcare multiclass dataset}
+
+The healthcare multiclass portion includes 55{,}500 patient records, each labelled with one of six medical conditions: Arthritis, Asthma, Cancer, Obesity, Hypertension, or Diabetes. Each condition accounts for roughly 16--17\% of the entire number of samples and, therefore, the dataset is perfectly balanced. To explore the range and preparedness of these demographic and administrative properties, we explored variables including age, sex, blood type, insurance provider, billing amount, and length of stay to assess variability. No empty or duplicate entries were noticed and verification that the dataset is clean and complete was done. The pie chart in Fig.~\ref{fig:pieP} shows the even spread among the six medical conditions, to help make sure that when the model learns from the data, it should not favour any one class. Now this dataset is non-clinical, but it does provide a good foundation to explore how well the demographic and administrative attributes support multiclass disease prediction \cite{MLS1,MLS2}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{piechart.png}
+    \caption{Patient distribution pie chart}\label{fig:pieP}
+\end{figure}
+
+\subsubsection{Symptom-based disease prediction}
+
+The symptom disease dataset is a pool of patient records of symptoms, and the last column is the disease that the patient has. The data features several binary symptom attributes that represent the absence or presence of a given symptom and one target attribute that represents the disease that was diagnosed. It was verified that all the entries are complete and there are no missed or repeated values, which proves the data is clean and can be used for training. To get familiar with the data structure, the distribution of diseases over the dataset was analysed. All the disease categories are adequately represented and, therefore, the model will get balanced samples during training and will not be biased in any way to one type of classification. The variability of the symptom features is also good and this enables the classifier to learn various symptom patterns of varying diseases. Even though there are no clinical measurements or numerical health indicators available in the dataset, the large variety of symptoms gives a solid foundation on multiclass disease prediction \cite{MLS3}. This makes the dataset appropriate for training machine-learning models, e.g., the Random Forest classifier \cite{MLS4}.
