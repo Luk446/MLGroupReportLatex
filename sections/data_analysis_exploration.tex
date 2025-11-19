@@ -6,7 +6,7 @@ The MRI classifying dataset was sourced from a comprehensive collection of MRI i
 
 \subsection{Brain Cancer MRI's}
 
-A sample of the three classes of data present is shown in fig.~\ref{fig:three_side_by_side}, pictures (a to b).  The proprietor has already uniformly resized the images to an equal length and height. The ML for this set uses the hold-out method, 70\% of the data is used for training, with the remaining 30\% used equally between validaiton and training. To avoid bias or overfitting the data is shuffled using an scikit-learn cross-validation function that returns stratified randomised folds \cite{scikit-learn_SS}. For the three sets some further ML specific pre-processing steps are executed, with training having more:
+A sample of the three classes of data present is shown in Fig.~\ref{fig:three_side_by_side}, pictures (a to c). The proprietor has already uniformly resized the images to equal dimensions. The ML for this set uses the hold-out method; 70\% of the data is used for training, with the remaining 30\% divided equally between validation and testing. To avoid bias or overfitting the data is shuffled using an scikit-learn cross-validation function that returns stratified randomised folds \cite{scikit-learn_SS}. For the three sets some further ML specific pre-processing steps are executed, with training having more:
 
 \begin{figure}[h]
     \centering
@@ -70,7 +70,7 @@ Additionally, the stroke dataset presented some inherent issues.
 
 The stroke dataset used contains 5,110 patient records with demographic and clinical attributes such as age, heart disease, BMI, hypertension and average blood sugar level. The main variable (stroke) is binary. A small amount of missing BMI data was filled in by using the mean value.
 
-A major challenge with this dataset is how unbalanced it is, with only about 3.4\% of the cases actually having a stroke. The data exploration carried out indicated a higher chance of stroke among individuals within the age range of 50-80 years as shown in Fig.~\ref{fig:ADSO} and those with elevated glucose levels. When correlation analysis was carried out, it showed that age, hypertension and heart disease had subtle but meaningful relationship with stroke occurrences.
+A major challenge with this dataset is its severe imbalance, with only approximately 3.4\% of cases representing actual stroke occurrences. The data exploration indicated a higher probability of stroke among individuals within the age range of 50--80 years, as shown in Fig.~\ref{fig:ADSO}, and those with elevated glucose levels. When correlation analysis was carried out, it showed that age, hypertension and heart disease had subtle but meaningful relationship with stroke occurrences.
 
 \begin{figure}[h]
     \centering

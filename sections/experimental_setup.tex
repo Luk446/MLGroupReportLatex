@@ -56,7 +56,7 @@ This architecture progressively increases feature depth (3$\rightarrow$32$\right
 The design of the training loop is configured to utilise the defined model. The path of the data is visualised and displayed in simple flow charts for training and testing, shown in Appendix Fig.~\ref{fig:TLMRI} and Fig.~\ref{fig:TELMRI}. Additionally, during training the performance of the model over each epoch was recorded. To provide extra insight into the training and broaden the scope, the model was run with varying hidden layer activation functions.
 
 % ------------ chin -------------------------- %
-For the stroke dataset, after the data was cleaned, three primary machine learning models were used.
+For the stroke dataset, after the data was cleaned, three primary ML models were used.
 
 \subsection{Stroke analysis training and evaluation}
 
@@ -67,4 +67,4 @@ The selected models were:
     \item Random Forest Classifier
 \end{itemize}
 
-The data was split into two parts for training and testing, 70\% was used for training the models and the remaining 30\% was set aside to test how well they performed. The performance of the models were evaluated using four main measurements; accuracy, precision, recall, and F1-score. After applying SMOTE, the models were retrained. To ensure a balanced evaluation of the stroke data and to compare with the classical models, a multi-layer perceptron (MLP) was used to train the balanced data.
+The data was split into two parts for training and testing; 70\% was used for training the models and the remaining 30\% was set aside to evaluate performance. The models were evaluated using four main metrics: accuracy, precision, recall, and F1-score. After applying SMOTE, the models were retrained. To ensure a balanced evaluation of the stroke data and to compare with the classical models, a multi-layer perceptron (MLP) was used to train the balanced data.

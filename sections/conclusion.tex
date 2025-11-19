@@ -1,1 +1,15 @@
 \section{Conclusion}
+
+In this project, machine learning (ML) was applied to three distinct healthcare datasets: MRI images, tabular stroke patient records, and combined healthcare records to determine how model choices, data preparation, and feature design affect performance. The results demonstrated that no single model performs optimally for every scenario; rather, successful performance depends on the type and structure of the data being analysed.
+
+The CNN model used on the MRI data, performed well in classifying tumours. This shows that convolutional architectures is well-suited for medical imaging. In stroke prediction, Logistic Regression combined with data balancing (SMOTE) offered the best performance trade-off between overall accuracy and detecting stroke cases. This shows that simpler, easy-to-understand models can be very effective if trained correctly. For the last dataset (combined healthcare data), the Random Forest model did poorly with the demographic information but performed well when trained on relevant symptom data. This showed that using relevant attributes are important for accurate prediction.
+
+The main findings from this project were as follows:
+\begin{itemize}
+    \item Model performance is influenced by data preparation methods and the relevance of chosen features.
+    \item Handling class imbalances is essential when modelling rare medical cases to ensure fair evaluation and reliable minority-class detection.
+    \item Model choice is guided by the data modality.
+    \item Deep learning performs optimally with rich, complex data such as images, whilst simpler models remain effective for organised tabular data.
+\end{itemize}
+
+Finally, these findings support the growing trend of using machine learning (ML) to assist doctors make better decisions. It helps provide reliable risk predictions, assists with diagnosis and making better use of the patient data made available.
